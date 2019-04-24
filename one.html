@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>100 days css #1</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Courier New', 'Courier', sans-serif;
+      font-size: 14px;
+    }
+
+    .background {
+      position: relative;
+      /* 左下角 -> 右上角 */
+      background: -webkit-linear-gradient(bottom left, #43389F 0%, #4ec6ca 100%);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 400px;
+      height: 400px;
+      color: white;
+      /* 水平阴影的位置, 垂直阴影的位置, 模糊距离, 阴影的尺寸, 阴影的颜色, inset?内置阴影 */
+      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .8);
+    }
+    .number-Wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .zero {
+      border: 25px solid white;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      box-shadow: 0 0 13px 0 rgba(0, 0, 0, .2);
+      z-index: 1
+    }
+
+    .zero-down {
+      margin-left: -20px;
+      z-index: 0;
+    }
+
+    .one {
+      box-shadow: 0 0 13px 0 rgba(0, 0, 0, .2);
+      background: white;
+      border-radius: 3px;
+    }
+
+    .one-up {
+      z-index: 2;
+      height: 40px;
+      width: 20px;
+      transform: rotate(45deg);
+      position: absolute;
+      top: 0;
+      left: -15px;
+    }
+
+    .one-down {
+      z-index: 3;
+      height: 100px;
+      width: 24px;
+      margin-right: -8px;
+    }
+
+    .title, .subtitle {
+      /* 定义文本的样式 */
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .title {
+      font-size: 83px;
+      line-height: 60px;
+      padding-top: 5px;
+    }
+    .subtitle {
+      font-size: 25px;
+      margin-top: -5px;
+    }
+  </style>
+
+
+</head>
+<body>
+  <div class="background">
+    <div class="number-Wrapper">
+      <div class="one one-up"></div>
+      <div class="one one-down"></div>
+      <div class="zero"></div>
+      <div class="zero zero-down"></div>
+    </div>
+    <div class="title">Days</div>
+    <div class="subtitle">Css Challange</div>
+  </div>
+</body>
+</html>

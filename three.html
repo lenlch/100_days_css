@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>100 days css #3</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      font-family: 'Lucida Sans', 'Lucida Grande', sans-serif;
+      font-size: 14px
+    }
+    .background {
+      background: linear-gradient(to bottom, #272c34 0%, #222 100%);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
+      width: 400px;
+      height: 400px;
+    }
+    .circle {
+      position: relative;
+      border-radius: 50%;
+      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+    }
+    .sky {
+      position: absolute;
+      top: 0;
+      background: #7ddffc;
+      height: 150px;
+      width: 100%;
+      animation: sky 5s cubic-bezier(.5, 0, .5, 1) infinite;
+    }
+    @keyframes sky {
+      0%,
+      100% {
+        background: #222
+      }
+      30%,
+      70% {
+        background: #7ddffc;
+      }
+    }
+    .sand {
+      position: absolute;
+      bottom: 0;
+      background: #f0de75;
+      height: 75px;
+      width: 100%;
+      animation: sand 5s cubic-bezier(.5, 0, .5, 1) infinite;
+    }
+    @keyframes sand {
+      0%,
+      100% {
+        background: #222
+      }
+      30%,
+      70% {
+        background: #f0de75
+      }
+    }
+    .sun {
+      position: absolute;
+      border-radius: 50%;
+      background: #ffef00;
+      width: 35px;
+      height: 35px;
+      top: 10px;
+      left: 75px;
+      animation: sun 5s cubic-bezier(.5, 0, .5, 1) infinite;
+      transform-origin: center 140px;
+    }
+    @keyframes sun {
+      0% {
+        background: #f57209;
+        transform: rotate(-70deg)
+      }
+      30% {
+        background: #ffef00;
+        transform: rotate(-28deg);
+      }
+      70% {
+        background: #ffef00;
+      }
+      100% {
+        background: #222;
+        transform: rotate(70deg)
+      }
+    }
+    .shadow {
+      position: absolute;
+      z-index: 2;
+      top: 125px;
+      left: -80px;
+      height: 30px;
+      width: 350px;
+      background: rgba(0, 0, 0, .2);
+      transform-origin: 50% 0%;
+      /* 路径剪裁 circle圆形, ellipse椭圆, polygon多边形 */
+      clip-path: polygon(115px 0%, 231 0%, 80% 100%);
+      animation: shadow 5s cubic-bezier(.5, 0, .5, 1) infinite;
+    }
+    @keyframes shadow {
+      0% {
+        transform: scaleY(0);
+        clip-path: polygon(115px 0%, 231px 0%, 80% 100%);
+      }
+      30% {
+        transform: scaleY(1);
+        clip-path: polygon(115px 0%, 231px 0%, 80% 100%);
+      }
+      55% {
+        transform: scaleY(0.4)
+      }
+      75% {
+        transform: scaleY(1)
+      }
+      100% {
+        transform: scaleY(0);
+        clip-path: polygon(115px 0%, 231px 0%, 0% 100%)
+      }
+    }
+    .left {
+      position: absolute;
+      top: 70px;
+      left: 35px;
+      height: 60px;
+      width: 120px;
+      background: #f4f4f4;
+      clip-path: polygon(0% 100%, 100% 100%, 50% 0%);
+      animation: pyramide 5s cubic-bezier(.5, 0, .5, 1) infinite;
+    }
+    .right {
+      position: absolute;
+      top: 70px;
+      left: 95px;
+      height: 60px;
+      width: 60px;
+      background: #dddada;
+      clip-path: polygon(30% 100%, 100% 100%, 0% 0%);
+      animation: pyramide 5s cubic-bezier(0.5, 0, 0.5, 1) infinite reverse;
+    }
+    @keyframes pyramide {
+      0%, 100% {
+        background: #222
+      }
+      30% {
+        background: #f4f4f4;
+      }
+      70% {
+        background: #dddada
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="circle">
+      <div class="sky"></div>
+      <div class="sun"></div>
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="shadow"></div>
+      <div class="sand"></div>
+    </div>
+  </div>
+</body>
+</html>
