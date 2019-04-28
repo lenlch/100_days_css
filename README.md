@@ -12,6 +12,8 @@
 
 [day six](./six.html)
 
+[day seven](./seven.html)
+
 
 Improve a little bit every one!!!
 
