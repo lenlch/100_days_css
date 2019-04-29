@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Underline Follow</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    ul {
+      list-style: none;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0;
+    }
+
+    li {
+      float: left;
+      width: 20%;
+      padding: 20px 0;
+      font-size: 24px;
+      text-align: center;
+      position: relative;
+    }
+    
+    li::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      /* 关键 */
+      left: 100%;
+      display: block;
+      width: 0;
+      height: 100%;
+      transition: .2s all linear;
+      border-bottom: 2px solid red !important;
+    }
+
+    li:hover::before {
+      left: 0;
+      width: 100%;
+      transition-delay: .1s;
+    }
+    /* 关键, ~匹配选择符器, li hover的时候, 同级的li before */
+    li:hover ~ li::before {
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>Javascript</li>
+    <li>Node.js</li>
+    <li>Vue</li>
+    <li>React</li>
+    <li>Html</li>
+  </ul>
+</body>
+</html>
