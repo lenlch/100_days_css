@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>100 days css challenge #10</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', Courier, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .frame {
+      width: 400px;
+      height: 400px;
+      border-radius: 5px;
+      box-shadow: 1px 2px 10px 0 rgba(0, 0, 0, .3);
+      background: linear-gradient(to bottom, #4c4c4c 0%, #313030 100%);
+      color: #fff;
+      font-size: 12px;
+      line-height: 100%;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .center {
+      position: relative;
+      width: 212px;
+      height: 212px;
+      background: #242424;
+      border: 7px solid #3a3a3a;
+      border-radius: 50%;
+      text-align: center;
+    }
+    .date {
+      position: absolute;
+      top: 68px;
+      width: 100%;
+    }
+    .time {
+      position: absolute;
+      top: 80px;
+      width: 100%;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 100%;
+      margin: 4px 0;
+    }
+    .beat {
+      position: absolute;
+      top: 129px;
+      left: 57px;
+    }
+    .beat span {
+      color: #f85b5b;
+      font-size: 10px;
+      float: left;
+      margin-top: 1px;
+      margin-right: 4px;
+      animation: beat .9s ease-in-out infinite;
+    }
+    .energy {
+      position: absolute;
+      top: 129px;
+      right: 55px;
+    }
+
+    .point-set-1,
+    .point-set-2,
+    .point-set-3,
+    .point-set-4,
+    .point-set-5,
+    .point-set-6,
+    .point-set-7,
+    .point-set-8,
+    .point-set-9,
+    .point-set-10,
+    .point-set-11,
+    .point-set-12,
+    .point-set-13,
+    .point-set-14,
+    .point-set-15 {
+      position: absolute;
+      height: 188px;
+      width: 188px;
+      top: 12px;
+      left: 12px;
+      transform: rotate(0deg)
+    }
+    .point-1,
+    .point-2,
+    .point-3,
+    .point-4 {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      top: 0;
+      left: 93px;
+      background: #d3d3d3;
+      border-radius: 50%;
+    }
+    .point-2 {
+      top: 93px;
+      left: auto;
+      right: 0;
+    }
+    .point-3 {
+      top: auto;
+      bottom: 0;
+    }
+    .point-4 {
+      top: 93px;
+      left: 0;
+    }
+
+    .point-set-2 {
+      transform: rotate(6deg)
+    }
+
+    .point-set-3 {
+      transform: rotate(12deg)
+    }
+
+    .point-set-4 {
+      transform: rotate(18deg)
+    }
+
+    .point-set-5 {
+      transform: rotate(24deg)
+    }
+
+    .point-set-6 {
+      transform: rotate(30deg)
+    }
+    
+    .point-set-7 {
+      transform: rotate(36deg)
+    }
+
+    .point-set-8{
+      transform: rotate(42deg)
+    }
+
+    .point-set-9{
+      transform: rotate(48deg)
+    }
+
+    .point-set-10{
+      transform: rotate(54deg)
+    }
+
+    .point-set-11{
+      transform: rotate(60deg)
+    }
+
+    .point-set-12{
+      transform: rotate(66deg)
+    }
+
+    .point-set-13{
+      transform: rotate(72deg)
+    }
+
+    .point-set-14{
+      transform: rotate(78deg)
+    }
+
+    .point-set-15{
+      transform: rotate(84deg)
+    }
+    
+    .ring {
+      position: absolute;
+      width: 202px;
+      height: 202px;
+      border-radius: 50%;
+      top: 5px;
+      left: 5px;
+    }
+
+    .ring .mask-1,
+    .ring .mask-2 {
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      /* 裁剪绝对定位元素 top right bottom left */
+      clip: rect(0, 202px, 202px, 101px);
+      /* step 允许将动画或者过渡分割成段 */
+      animation: mask-1 10s steps(1) infinite;
+    }
+
+    .ring .mask-1 .spin,
+    .ring .mask-2 .spin {
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 50%;
+      bottom: 0;
+      border: 3px solid #f85b5b;
+      border-radius: 100% 0 0 100% / 50% 0 0 50%;
+      border-right: none;
+      transform-origin: 100% 50%;
+      animation: rotate-1 10s linear infinite;
+    }
+
+    .ring .mask-2 {
+      clip: rect(0, 101px, 202px, 0);
+      animation: mask-2 10s steps(1) infinite;
+    }
+    .ring .mask-2 .spin {
+      animation: rotate-2 10s linear infinite;
+    }
+
+    @keyframes rotate-1 {
+      0% {
+        transform: rotate(0deg)
+      }
+      12.5% {
+        transform: rotate(180deg)
+      }
+      25% {
+        transform: rotate(360deg)
+      }
+      37.5% {
+        transform: rotate(360deg)
+      }
+      50% {
+        transform: rotate(540deg)
+      }
+      62.5% {
+        transform: rotate(540deg)
+      }
+      75% {
+        transform: rotate(540deg)
+      }
+      87.5% {
+        transform: rotate(720deg)
+      }
+      100% {
+        transform: rotate(720deg)
+      }
+    }
+
+    @keyframes rotate-2 {
+      0% {
+        transform: rotate(180deg)
+      }
+      12.5% {
+        transform: rotate(180deg)
+      }
+      25% {
+        transform: rotate(180deg)
+      }
+      37.5% {
+        transform: rotate(360deg)
+      }
+      50% {
+        transform: rotate(360deg)
+      }
+      62.5% {
+        transform: rotate(540deg)
+      }
+      75% {
+        transform: rotate(720deg)
+      }
+      87.5% {
+        transform: rotate(720deg)
+      }
+      100% {
+        transform: rotate(900deg)
+      }
+    }
+
+    @keyframes mask-1 {
+      0% {
+        clip: rect(0, 202px, 202px, 101px)
+      }
+      12.5%, 25%, 37.5%, 50% {
+        clip: rect(0, 101px, 202px, 0)
+      }
+      62.5%, 75%, 82.5%, 100% {
+        clip: rect(0, 202px, 202px, 101px)
+      }
+    }
+
+    @keyframes mask-2 {
+      0% {
+        clip: rect(0, 101px, 202px, 0px)
+      }
+      12.5%, 25%, 37.5%, 50% {
+        clip: rect(0, 202px, 202px, 101px)
+      }
+      62.5%, 75%, 82.5%, 100% {
+        clip: rect(0, 101px, 202px, 0px)
+      }
+    }
+
+    @keyframes beat {
+      0% {
+        transform: scale(1)
+      }
+      35% {
+        transform: scale(1.2)
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="center">
+      <div class="point-set-1">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="point-set-2">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="point-set-3">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="point-set-4">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="point-set-5">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="point-set-6">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="point-set-7">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="point-set-8">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="point-set-9">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="point-set-10">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="point-set-11">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="point-set-12">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="point-set-13">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="point-set-14">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="point-set-15">
+        <div class="point-1"></div>
+        <div class="point-2"></div>
+        <div class="point-3"></div>
+        <div class="point-4"></div>
+      </div>
+      <div class="ring">
+        <div class="mask-1">
+          <div class="spin"></div>
+        </div>
+        <div class="mask-2">
+          <div class="spin"></div>
+        </div>
+      </div>
+      <div class="date">Fir 3 May 2019</div>
+      <div class="time">14:02</div>
+      <div class="beat">
+        <span class="fa fa-heart"></span>81
+      </div>
+      <div class="energy">1248 kcal</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -18,6 +18,10 @@
 
 [day nine](./nine.html)
 
+[day nine](./ten.html)
+
+[day nine](./eleven.html)
+
 
 Improve a little bit every one!!!
 
